@@ -47,123 +47,203 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL statement to Change the category to 'Household' where product name contains 'Detergent' in the products table.
 
-```sql
--- Paste your SQL code below for Question 1
+Products Table 
+
+name          type       
+----------    ---------- 
+product_id     INT PRIMARY KEY        
+product_name   VARCHAR(10) 
+category       VARCHAR(50) 
+cost_price     DECIMAL(10) 
+sell_price     DECIMAL(10) 
+reorder_lvl    INT        
+quantity       INT        
+supplier_id    INT      
+
+```
+update products
+set category='Household'
+where product_name like '%Detergent%';
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1213" height="589" alt="image" src="https://github.com/user-attachments/assets/21886e3b-b9a5-48bc-8fbc-653c28a48f1f" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
 
-```sql
--- Paste your SQL code below for Question 2
+products table
+
+---------------
+product_id
+product_name
+category_id
+availability
+
+```
+update products
+set product_name="Grapefruit"
+where product_id=4;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1223" height="327" alt="image" src="https://github.com/user-attachments/assets/1b548c22-efed-48e6-aa54-47374f2b7566" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Change the supplier name to upper case where contact person contains ' Singh' in suppliers table.
 
-```sql
--- Paste your SQL code below for Question 3
+name               type
+-----------------  ---------------
+supplier_id        INT
+supplier_name      VARCHAR(100)
+contact_person     VARCHAR(100)
+phone_number       VARCHAR(20)
+email              VARCHAR(100)
+address            VARCHAR(250)
+
+```
+update SUPPLIERS
+set supplier_name=UPPER(supplier_name)
+where contact_person like '%SINGH%';
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1224" height="447" alt="image" src="https://github.com/user-attachments/assets/0b271e62-4ba4-4d96-b6d9-01bc728b4955" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL statement to Update the hire_date of employees in department 50 to 2024-01-24.
 
-```sql
--- Paste your SQL code below for Question 4
+Employees table
+
+---------------
+employee_id
+first_name
+last_name
+email
+phone_number
+hire_date
+job_id
+salary
+commission_pct
+manager_id
+department_id
+
+```
+update Employees
+set hire_date="2024-01-24";
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1238" height="376" alt="image" src="https://github.com/user-attachments/assets/4c9a7fd9-9510-4bd8-94b7-25e4f81cf1f3" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL statement to Update the per_unit_price to 25 and total_price accordingly in purchases table where purchase_date is '2022-08-15' and product_id is 12.
 
-```sql
--- Paste your SQL code below for Question 5
+```
+update purchases
+set per_unit_price=25,
+total_price=quantity*25
+where product_id=12 and purchase_date='2022-08-15';
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1240" height="612" alt="image" src="https://github.com/user-attachments/assets/0b417510-50b2-4a36-8502-c25fb0090e82" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to Delete a Specific Surgery which was made on 28th Feb 2024.
 
-```sql
--- Paste your SQL code below for Question 6
+Sample table: Surgeries
+
+attributes: surgery_id, patient_id, surgeon_id, surgery_date
+
+```
+delete from Surgeries
+where surgery_date='2024-02-28';
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1230" height="470" alt="image" src="https://github.com/user-attachments/assets/f9aade89-130b-4c2c-85d3-e2db5242942b" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to remove rows from the table 'customer' with the following condition -
 
-```sql
--- Paste your SQL code below for Question 7
+1. 'cust_city' should begin with the letter 'L',
+
+```
+delete from Customer
+where cust_city like "L%";
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1218" height="949" alt="image" src="https://github.com/user-attachments/assets/b02cdd59-a5ec-48da-b38e-9d7b010ca856" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to delete a doctor from Doctors table whose Specialization is 'Pediatrics' and First name is 'Michael'.
 
-```sql
--- Paste your SQL code below for Question 8
+```
+delete from Doctors
+where specialization="Pediatrics" and first_name="Michael";
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1227" height="469" alt="image" src="https://github.com/user-attachments/assets/07447f57-b7f6-4862-ac0b-8d63e8366be4" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to remove rows from the table 'customer' with the following condition -
 
-```sql
--- Paste your SQL code below for Question 9
+1. 'cust_country' must be 'India',
+
+2. 'cus_city' must not be 'Chennai',
+
+```
+delete from Customer
+where cust_country="India" and cust_city!="Chennai";
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1232" height="942" alt="image" src="https://github.com/user-attachments/assets/9a1dde37-9bb7-4e04-a591-5583f59ebdd8" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to Delete customers from 'customer' table where 'GRADE' is odd.
 
-```sql
--- Paste your SQL code below for Question 10
+```
+delete from Customer
+where grade%2!=0;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1233" height="501" alt="image" src="https://github.com/user-attachments/assets/05ec7685-4afa-4d2e-98db-2d5213568644" />
+
+![WhatsApp Image 2025-11-22 at 22 48 40_3ce24fb1](https://github.com/user-attachments/assets/a3b4c1b6-89ac-4f9e-82a2-3a16d9689289)
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
