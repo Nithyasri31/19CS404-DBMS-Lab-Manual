@@ -38,123 +38,173 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+How many medical records are there for each patient?
 
-```sql
--- Paste your SQL code below for Question 1
+Sample table:MedicalRecords Table
+
+```
+select PatientID,count(RecordID) as TotalRecords from MedicalRecords
+group by PatientID;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="755" height="749" alt="image" src="https://github.com/user-attachments/assets/2d3ba139-a3e8-4580-8021-51dc75025cf4" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+How many appointments are scheduled for each patient?
 
-```sql
--- Paste your SQL code below for Question 2
+Sample table: Appointments Table
+
+name                  type
+--------------------  ----------
+AppointmentID         INTEGER
+PatientID             INTEGER
+DoctorID              INTEGER
+AppointmentDateTime   DATETIME
+Purpose               TEXT
+Status                TEXT
+
+```
+select PatientID,count(AppointmentID) as TotalAppointments from Appointments
+group by PatientID;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="856" height="723" alt="image" src="https://github.com/user-attachments/assets/25b5a739-112f-4116-9e36-2e2f99b714e3" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+How many patients have insurance coverage valid in each year?
 
-```sql
--- Paste your SQL code below for Question 3
+Sample table:Insurance Table
+
+name               type
+-----------------  ----------
+InsuranceID        INTEGER
+PatientID          INTEGER
+InsuranceCompany   TEXT
+PolicyNumber       TEXT
+PolicyHolder       TEXT
+ValidityPeriod     TEXT
+
+```
+select strftime("%Y",ValidityPeriod)as ValidityYear, count(PatientID) as TotalPatients from Insurance
+group by strftime("%Y", ValidityPeriod);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="696" height="472" alt="image" src="https://github.com/user-attachments/assets/829e6555-e077-4e79-a5b4-d9e970c85e94" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to find the average length of email addresses (in characters):
 
-```sql
--- Paste your SQL code below for Question 4
+Table: customer
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+city        TEXT
+email       TEXT
+phone       INTEGER
+
+```
+select avg(length(email))as avg_email_length from customer;
 ```
 
 **Output:**
 
-![Output4](output.png)
+
+<img width="577" height="418" alt="image" src="https://github.com/user-attachments/assets/0a773fe8-e904-4e9d-99c6-412fd6ca25be" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to find the number of employees whose age is greater than 32.
 
-```sql
--- Paste your SQL code below for Question 5
+```
+select count(id)as COUNT from employee
+where age>32;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="432" height="410" alt="image" src="https://github.com/user-attachments/assets/0b754c82-9dbd-4e53-ac5c-fcec1a7c5ed4" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find the youngest employee in the company?
 
-```sql
--- Paste your SQL code below for Question 6
+```
+select name as Employee_Name,min(Age) as Age from employee;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="655" height="410" alt="image" src="https://github.com/user-attachments/assets/19b1074a-9d9d-4fcc-aea2-cc83e75ef7f9" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to find the total income of employees aged 40 or above.
 
-```sql
--- Paste your SQL code below for Question 7
+```
+select sum(income) as total_income from employee
+where age>=40;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="513" height="408" alt="image" src="https://github.com/user-attachments/assets/d51e885f-bcae-4cd8-8908-5f91a19f49d4" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that achieves the selection of category and calculates the sum of the product of price and category ID as Revenue for each category from the "products" table, and includes only those products where the total revenue is greater than 25.
 
-```sql
--- Paste your SQL code below for Question 8
+```
+select category_id,sum(price*category_id) as Revenue from products
+group by category_id having Revenue>25;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="645" height="519" alt="image" src="https://github.com/user-attachments/assets/70e09921-184d-4d63-8b51-9263b88f46b6" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that accomplishes the grouping of data by addresses, calculates the sum of salaries for each address, and excludes addresses where the total salary sum is not greater than 2000.
 
-```sql
--- Paste your SQL code below for Question 9
+```
+select address, SUM(salary) from customer1
+group by address having SUM(salary)>2000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="702" height="549" alt="image" src="https://github.com/user-attachments/assets/01bb9cdc-7260-4d72-9b34-6ebbceb240c1" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the grouping of data by joining date (jdate), calculates the average work hours for each date, and excludes dates where the average work hour is not less than 10.
 
-```sql
--- Paste your SQL code below for Question 10
+```
+select jdate,AVG(workhour) from employee1 
+group by jdate having avg(workhour)<10;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="627" height="428" alt="image" src="https://github.com/user-attachments/assets/bc32e67f-29b7-4e53-a67f-361288a3df91" />
+
 
 
 ## RESULT
