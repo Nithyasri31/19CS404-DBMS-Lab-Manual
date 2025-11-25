@@ -205,6 +205,8 @@ group by jdate having avg(workhour)<10;
 
 <img width="627" height="428" alt="image" src="https://github.com/user-attachments/assets/bc32e67f-29b7-4e53-a67f-361288a3df91" />
 
+![WhatsApp Image 2025-11-22 at 22 48 41_7d5520a8](https://github.com/user-attachments/assets/dc04653c-f31a-437f-8f5e-e57ac28808cc)
+
 
 
 ## RESULT
